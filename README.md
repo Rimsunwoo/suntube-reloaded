@@ -1,10 +1,15 @@
 # Suntube Reloaded
 
 / -> Home
+/join -> Join
 /login -> Login
 /Search -> Search
-/edit-user -> Edit user
-/delete-user -> Delete user
-/watch-video -> Watch Video
-/edit-video -> Edit Video
-/delete-video -> Delete Video
+
+/users/edit -> Edit user
+/users/delete -> Delete user
+
+/videos/watch -> Watch Video
+/videos/edit -> Edit Video
+/videos/delete -> Delete Video
+/videos/comments -> Comment on a video
+/videos/comments/delete -> Delete a Comment
