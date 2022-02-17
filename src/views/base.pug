@@ -1,8 +1,9 @@
 doctype html
 html(lang="ko")
     head
-        title Suntube
+        link(rel="stylesheet" href="https://unpkg.com/mvp.css")
+        title #{pageTitle} | Suntube
     body
-    block content
-        h1 base!
-        include partials/footer.pug
+        main
+            block content
+    include partials/footer.pug
