@@ -4,6 +4,10 @@ html(lang="ko")
         link(rel="stylesheet" href="https://unpkg.com/mvp.css")
         title #{pageTitle} | Suntube
     body
+        header
+        ul
+            each video in videos
+                li=video
         main
             block content
     include partials/footer.pug
