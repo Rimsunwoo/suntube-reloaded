@@ -1,4 +1,9 @@
 extends base.pug
+include mixins/video
 
 block content
-    h2 Welcome here you will see the trending videos
+    h2 Welcome here you can see the trending videos.
+    each x in videos
+        +video(x)
+
+        
