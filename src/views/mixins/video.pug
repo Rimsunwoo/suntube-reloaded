@@ -9,3 +9,7 @@ mixin video(video)
                 li=hashtag
         small=video.createdAt 
         hr
+//- video를 생성하면 id 부여/ 
+//- Router => videos/:id 로 연결
+//- template => a(href="/videos/${videos.id}")
+//- Controller => req.params
