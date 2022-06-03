@@ -5,7 +5,7 @@ import {
   getLogin,
   postLogin,
 } from "../controllers/userController";
-import { home, searchVideo } from "../controllers/videoCotroller";
+import { home, search } from "../controllers/videoCotroller";
 import { publicOnlyMiddleware } from "../middlewares";
 const rootRouter = express.Router();
 
@@ -16,6 +16,6 @@ rootRouter
   .all(publicOnlyMiddleware)
   .get(getLogin)
   .post(postLogin);
-rootRouter.get("/search", searchVideo);
+rootRouter.get("/search", search);
 
 export default rootRouter;

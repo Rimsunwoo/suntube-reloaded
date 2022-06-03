@@ -1,5 +1,4 @@
 import User from "../models/User";
-import Video from "../models/Video";
 import fetch from "node-fetch";
 import bcrypt from "bcrypt";
 import session from "express-session";
@@ -136,7 +135,7 @@ export const finishGithubLogin = async (req, res) => {
 };
 
 export const getEdit = (req, res) => {
-  return res.render("users/edit-profile", { pageTitle: "Edit profile" });
+  return res.render("edit-profile", { pageTitle: "Edit profile" });
 };
 
 export const postEdit = async (req, res) => {
@@ -169,15 +168,19 @@ export const logout = (req, res) => {
 };
 export const see = async (req, res) => {
   const { id } = req.params;
-  const user = await User.findById(id).populate("videos");
-  const videos = await Video.find({ owner: user._id });
+  const user = await User.findById(id).populate({
+    path: "videos",
+    populate: {
+      path: "owner",
+      model: "User",
+    },
+  });
   if (!user) {
     return res.status(404).render("404", { pageTitle: "User not found" });
   }
-  res.render("users/profile", {
-    pageTitle: `${user.name}의 Profile`,
+  return res.render("users/profile", {
+    pageTitle: user.name,
     user,
-    videos,
   });
 };
 

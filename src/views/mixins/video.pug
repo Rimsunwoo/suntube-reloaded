@@ -1,15 +1,8 @@
 mixin video(video)
-    div 
-        h4
-            a(href=`/videos/${video.id}`)=video.title
-    div
-        p=video.description
-        ul
-            each hashtag in video.hashtags
-                li=hashtag
-        small=video.createdAt 
-        hr
-//- video를 생성하면 id 부여/ 
-//- Router => videos/:id 로 연결
-//- template => a(href="/videos/${videos.id}")
-//- Controller => req.params
+    a(href=`/videos/${video.id}`).video-mixin
+        div.video-mixin__thumb
+        div.video-mixin__data
+            span.video-mixin__title=video.title
+            div.video-mixin__meta
+                span #{video.owner.name} • 
+                span #{video.meta.views}회
